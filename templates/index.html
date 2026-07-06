@@ -1,0 +1,70 @@
+<!-- -->
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD con Flask y SQLite</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>📋 Gestor de Ítems (CRUD)</h1>
+
+        <!-- Mensaje de éxito/error -->
+        <div id="message" class="message"></div>
+
+        <!-- Sección del formulario -->
+        <div class="form-section">
+            <h2 id="form-title">➕ Crear Nuevo Ítem</h2>
+            <form id="item-form">
+                <input type="hidden" id="item-id">
+
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" placeholder="Ej: Producto 1" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="descripcion">Descripción:</label>
+                    <textarea id="descripcion" placeholder="Descripción del ítem..." required></textarea>
+                </div>
+
+                <div class="buttons">
+                    <button type="submit" class="btn-primary" id="submit-btn">💾 Guardar</button>
+                    <button type="button" class="btn-secondary" id="cancel-btn" style="display: none;">❌ Cancelar</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Sección de la tabla -->
+        <div class="header-actions">
+            <h2>📊 Lista de Ítems</h2>
+            <button class="btn-success" onclick="loadItems()">🔄 Actualizar Lista</button>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="items-list">
+                <!-- Los ítems se cargarán aquí automáticamente -->
+            </tbody>
+        </table>
+
+        <!-- Sección de depuración -->
+        <div class="debug-toggle">
+            <button onclick="toggleDebug()">🐛 Mostrar/Ocultar Logs</button>
+        </div>
+        <div id="debug-log"></div>
+    </div>
+    <script src="static/script.js"></script>
+</body>
+</html>
